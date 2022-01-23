@@ -36,8 +36,8 @@ const selectedCountry = ({ data, arrayBorderNames }) => {
                     </div>
 
                     <h3 className="my-2"> <span className="font-semibold"> Border countries : </span> {data[0].borders ? arrayBorderNames.map((el, index)=>(
-                        <Link href={`/${el}`}>
-                          <a>  <button key={index} className="mx-4 my-4 py-1 px-4 bg-dark_blue shadow-md ">   {el} </button> </a> 
+                        <Link key={index} href={`/${el}`}>
+                          <a>  <button  className="mx-4 my-4 py-1 px-4 bg-dark_blue shadow-md ">   {el} </button> </a> 
                         </Link>
                         
                     )) : null }  </h3>

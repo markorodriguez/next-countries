@@ -83,7 +83,7 @@ const home = ({ data }) => {
       </div>
       
       <div className="w-full text-center py-4 my-4">
-      <span className="font-semibold" >Coded by <a href="https://github.com/markorodriguez" target="_blank" rel="norreferer"  className="text-custom_white">Marko</a>. You can find the github repo <a target="_blank" rel="norreferer" href="https://github.com/markorodriguez/next-countries" className="text-custom_white">here.</a></span>
+      <span className="font-semibold" >Coded by <a href="https://github.com/markorodriguez" target="_blank" rel="noreferrer"  className="text-custom_white">Marko</a>. You can find the github repo <a target="_blank" rel="noreferrer" href="https://github.com/markorodriguez/next-countries" className="text-custom_white">here.</a></span>
       </div>
        
 
