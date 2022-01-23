@@ -146,7 +146,7 @@ export async function getStaticProps({ params }) {
         const arrayBorderNames = [];
 
         if (data.status != "404") {
-            const result = await dataGlobal.find(
+            const result = dataGlobal.find(
                 (element) => element.cca3 == data[0].cca3
             );
 
