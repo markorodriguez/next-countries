@@ -25,9 +25,11 @@ const selectedCountry = ({ data, arrayBorderNames }) => {
                             }  </h3>
                         </div>
                         <div className="md:w-3/6 w-full">
-                            <h3 className="my-2"> <span className="font-semibold"> Top level domain : </span> {data[0].tld[0]}  </h3>
+                            <h3 className="my-2"> <span className="font-semibold"> Top level domain : </span> {
+                                data[0].tld ? data[0].tld[0] : ' not provided '
+                            }  </h3>
                             <h3 className="my-2"> <span className="font-semibold"> Currencies : </span> {
-                               data[0].currencies ? data[0].currencies[Object.keys(data[0].currencies)[0]].name : '---'
+                               data[0].currencies ? data[0].currencies[Object.keys(data[0].currencies)[0]].name : ' not provided '
                             }  </h3>
                             <h3 className="my-2"> <span className="font-semibold"> Languages : </span> {
                                 Object.values(data[0].languages).toString()
@@ -83,14 +85,13 @@ export async function getStaticProps({ params }) {
         
         if (result.borders != null ) {
             result.borders.map((el)=>{
-                if(el.cca3){
-                    const borderCountry = dataGlobal.find(country => country.cca3 == el )
+                const borderCountry = dataGlobal.find(country => country.cca3 == el )
                 arrayBorderNames.push(borderCountry.name.common)
-                }
-                
             })
         } 
         
+        console.log(data)
+
         return {
             props: {
                 data,
