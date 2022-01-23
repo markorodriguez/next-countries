@@ -83,13 +83,13 @@ export async function getStaticProps({ params }) {
         
         if (result.borders != null ) {
             result.borders.map((el)=>{
-                const borderCountry = dataGlobal.find(country => country.cca3 == el )
+                if(el.cca3){
+                    const borderCountry = dataGlobal.find(country => country.cca3 == el )
                 arrayBorderNames.push(borderCountry.name.common)
+                }
+                
             })
         } 
-
-        console.log(data)
-
         
         return {
             props: {
