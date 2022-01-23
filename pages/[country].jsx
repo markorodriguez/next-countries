@@ -27,7 +27,7 @@ const selectedCountry = ({ data, arrayBorderNames }) => {
                         <div className="md:w-3/6 w-full">
                             <h3 className="my-2"> <span className="font-semibold"> Top level domain : </span> {data[0].tld[0]}  </h3>
                             <h3 className="my-2"> <span className="font-semibold"> Currencies : </span> {
-                               data[0].currencies[Object.keys(data[0].currencies)[0]].name
+                               data[0].currencies ? data[0].currencies[Object.keys(data[0].currencies)[0]].name : '---'
                             }  </h3>
                             <h3 className="my-2"> <span className="font-semibold"> Languages : </span> {
                                 Object.values(data[0].languages).toString()
@@ -37,7 +37,7 @@ const selectedCountry = ({ data, arrayBorderNames }) => {
 
                     <h3 className="my-2"> <span className="font-semibold"> Border countries : </span> {data[0].borders ? arrayBorderNames.map((el, index)=>(
                         <Link key={index} href={`/${el}`}>
-                          <a>  <button  className="mx-4 my-4 py-1 px-4 bg-dark_blue shadow-md ">   {el} </button> </a> 
+                          <a>  <button  className="mx-4 my-4 py-1 px-4 bg-dark_blue shadow-md "> {el} </button> </a> 
                         </Link>
                         
                     )) : null }  </h3>
@@ -87,6 +87,9 @@ export async function getStaticProps({ params }) {
                 arrayBorderNames.push(borderCountry.name.common)
             })
         } 
+
+        console.log(data)
+
         
         return {
             props: {
